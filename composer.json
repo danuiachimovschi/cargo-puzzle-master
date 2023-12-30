@@ -1,0 +1,32 @@
+{
+    "name": "cargo/puzzle",
+    "autoload": {
+        "psr-4": {
+            "Cargo\\": "src/",
+            "Cargo\\App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "danu"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^2.30",
+        "phpstan/phpstan": "^1.10",
+        "mockery/mockery": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/pest --configuration=phpunit.xml"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse src"
+        ]
+    }
+}

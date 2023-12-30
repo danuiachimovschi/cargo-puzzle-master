@@ -1,0 +1,47 @@
+<?php
+
+use Cargo\App\Packages\SecondTransport\ApplePackage;
+use Cargo\App\Packages\ThirdTransport\BookPackage;
+use Cargo\App\Packages\ThirdTransport\PhonePackage;
+use Cargo\App\ResultDumper;
+use Cargo\App\Container\{FortyFeetContainer, TenFeetContainer};
+use Cargo\App\Packages\SecondTransport\ToyPackage;
+use Cargo\Core\{Calculator, Transport};
+
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$firstTransport = new Transport();
+
+$firstTransport->registerContainer(new FortyFeetContainer());
+$firstTransport->registerContainer(new TenFeetContainer());
+
+$firstTransport->registerPackage(new ToyPackage());
+
+$secondTransport = new Transport();
+
+$secondTransport->registerContainer(new FortyFeetContainer());
+$secondTransport->registerContainer(new TenFeetContainer());
+
+$secondTransport->registerPackage(new ApplePackage());
+$secondTransport->registerPackage(new ToyPackage());
+
+$thirdTransport = new Transport();
+
+$thirdTransport->registerContainer(new FortyFeetContainer());
+$thirdTransport->registerContainer(new TenFeetContainer());
+
+$thirdTransport->registerPackage(new BookPackage());
+$thirdTransport->registerPackage(new PhonePackage());
+
+
+$resultTransportOne = Calculator::calculate($firstTransport);
+$resultTransportTwo = Calculator::calculate($secondTransport);
+$resultTransportThree = Calculator::calculate($thirdTransport);
+
+
+$dumper = new ResultDumper();
+
+$dumper->dd($resultTransportOne);
+$dumper->dd($resultTransportTwo);
+$dumper->dd($resultTransportThree);
