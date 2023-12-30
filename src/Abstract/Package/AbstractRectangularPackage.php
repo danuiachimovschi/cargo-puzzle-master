@@ -26,7 +26,7 @@ abstract class AbstractRectangularPackage implements PackageInterface
      */
     private function setVolumeOfPackages(): void
     {
-       $this->dimension = $this->length * $this->width * $this->height * $this->numberItems;
+        $this->dimension = $this->length * $this->width * $this->height * $this->numberItems;
     }
 
     /**

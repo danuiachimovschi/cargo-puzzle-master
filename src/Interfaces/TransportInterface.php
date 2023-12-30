@@ -24,4 +24,6 @@ interface TransportInterface
      */
     public function getPackages(): array;
 
+
+    public function getCountContainers(): int;
 }

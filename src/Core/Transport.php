@@ -52,7 +52,9 @@ class Transport implements TransportInterface
         $volume = 0;
         $countPackages = count($this->packages);
 
-        for ($i = 0; $i < $countPackages; $i++) $volume += $this->packages[$i]->getDimension();
+        for ($i = 0; $i < $countPackages; $i++) {
+            $volume += $this->packages[$i]->getDimension();
+        }
 
         return $volume;
     }
@@ -84,5 +86,13 @@ class Transport implements TransportInterface
     public function getContainers(): array
     {
         return $this->containers;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountContainers(): int
+    {
+        return count($this->containers);
     }
 }
