@@ -30,7 +30,7 @@ readonly final class Calculator
         var_dump($transportVolume);
 
         foreach ($containers as $item => $container) {
-            echo $container::NAME . ($container->getDimension()) . PHP_EOL;
+            echo $container::class . ($container->getDimension()) . PHP_EOL;
             $items = (int) floor($transportVolume / $container->getDimension());
 
             if ($count === $item + 1) $items = (int) ceil($transportVolume / $container->getDimension(), );
