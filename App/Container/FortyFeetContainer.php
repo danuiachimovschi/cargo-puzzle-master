@@ -30,6 +30,6 @@ final class FortyFeetContainer extends AbstractDryContainer
 
     public function __construct()
     {
-        parent::__construct(self::LENGTH, self::WIDTH, self::HEIGHT, self::NAME);
+        parent::__construct(self::LENGTH, self::WIDTH, self::HEIGHT);
     }
 }
