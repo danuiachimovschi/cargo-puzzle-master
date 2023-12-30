@@ -3,7 +3,7 @@ on:
     branches:
       - master
 
-name: CI Branch Dev
+name: CI Branch Master
 
 jobs:
   phpunit:
