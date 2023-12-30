@@ -23,10 +23,7 @@ describe('Calculator', function () {
         $result = \Cargo\Core\Calculator::calculate($transportOne);
 
         expect($result)->toBe([
-            'containers' => [
-                \Cargo\App\Container\TenFeetContainer::class => 1,
-            ],
-            'freeSpace' => 169625.93
+            \Cargo\App\Container\TenFeetContainer::class => 1,
         ]);
     });
 
@@ -45,10 +42,7 @@ describe('Calculator', function () {
         $result = \Cargo\Core\Calculator::calculate($transportTwo);
 
         expect($result)->toBe([
-            'containers' => [
-                Cargo\App\Container\TenFeetContainer::class => 4
-            ],
-            'freeSpace' => 9181631.72
+            Cargo\App\Container\TenFeetContainer::class => 4
         ]);
     });
 
@@ -67,10 +61,7 @@ describe('Calculator', function () {
         $result = \Cargo\Core\Calculator::calculate($transportThree);
 
         expect($result)->toBe([
-            'containers' => [
-                Cargo\App\Container\TenFeetContainer::class => 3,
-            ],
-            'freeSpace' => 12927223.79
+            Cargo\App\Container\TenFeetContainer::class => 3
         ]);
     });
 

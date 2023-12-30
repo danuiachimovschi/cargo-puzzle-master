@@ -25,7 +25,6 @@ readonly final class Calculator
         /*** array<class-string, ContainerInterface> $containers*/
         $containers = $transport->getSortedContainers();
         $count = count($containers);
-        $freeSpace = 0;
 
         var_dump($transportVolume);
 
@@ -41,15 +40,9 @@ readonly final class Calculator
 
             $result[$container::class] = $items;
 
-            if ($transportVolume <= 0) {
-                $freeSpace = (float) number_format(abs($transportVolume), 2, '.', '');
-                break;
-            };
+            if ($transportVolume <= 0) break;
         }
 
-        return [
-            'containers' => $result,
-            'freeSpace' => $freeSpace
-        ];
+        return $result;
     }
 }

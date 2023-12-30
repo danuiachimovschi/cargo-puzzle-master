@@ -1,5 +1,6 @@
 <?php
 
+use Cargo\App\Packages\FirstTransport\BananaPackage;
 use Cargo\App\Packages\SecondTransport\ApplePackage;
 use Cargo\App\Packages\ThirdTransport\BookPackage;
 use Cargo\App\Packages\ThirdTransport\PhonePackage;
@@ -16,7 +17,7 @@ $firstTransport = new Transport();
 $firstTransport->registerContainer(new FortyFeetContainer());
 $firstTransport->registerContainer(new TenFeetContainer());
 
-$firstTransport->registerPackage(new ToyPackage());
+$firstTransport->registerPackage(new BananaPackage());
 
 $secondTransport = new Transport();
 
@@ -38,7 +39,6 @@ $thirdTransport->registerPackage(new PhonePackage());
 $resultTransportOne = Calculator::calculate($firstTransport);
 $resultTransportTwo = Calculator::calculate($secondTransport);
 $resultTransportThree = Calculator::calculate($thirdTransport);
-
 
 $dumper = new ResultDumper();
 
