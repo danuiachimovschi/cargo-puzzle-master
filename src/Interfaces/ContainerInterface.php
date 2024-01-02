@@ -6,5 +6,5 @@ namespace Cargo\Interfaces;
 
 interface ContainerInterface
 {
-    public function getDimension(): float;
+    public function getVolume(): float;
 }

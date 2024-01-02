@@ -7,9 +7,9 @@ use Cargo\Interfaces\PackageInterface;
 abstract class AbstractRectangularPackage implements PackageInterface
 {
     /**
-     * @var int $dimension
+     * @var int $volume
      */
-    private int $dimension;
+    private int $volume;
 
     public function __construct(
         private readonly int $length,
@@ -26,14 +26,14 @@ abstract class AbstractRectangularPackage implements PackageInterface
      */
     private function setVolumeOfPackages(): void
     {
-        $this->dimension = $this->length * $this->width * $this->height * $this->numberItems;
+        $this->volume = $this->length * $this->width * $this->height * $this->numberItems;
     }
 
     /**
      * @return int
      */
-    public function getDimension(): int
+    public function getVolume(): int
     {
-        return $this->dimension;
+        return $this->volume;
     }
 }

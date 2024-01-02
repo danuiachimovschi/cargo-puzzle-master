@@ -9,22 +9,13 @@ use Cargo\Enums\VolumeMesureEnum;
 class ResultDumper
 {
     /**
-     * @param array<string, array<class-string|int, int<min, -1>|int<1, max>>|float|int> $result
+     * @param array<class-string, int> $containers
      * @return void
      */
-    public function dd(array $containers): void
+    public static function dd(array $containers): void
     {
         foreach ($containers as $container => $count) {
             echo $container::NAME . ' - ' . $count . " items" . PHP_EOL;
         }
-    }
-
-    /**
-     * @param float $cubicCentimeters
-     * @return string
-     */
-    private function cubicCentimetersToCubicMeters(float $cubicCentimeters): string
-    {
-        return round($cubicCentimeters / 1000000, 2) . VolumeMesureEnum::CUBIC_M->value;
     }
 }

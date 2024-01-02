@@ -15,6 +15,6 @@ describe('container', function (){
 
         $expected = round($data['length'] * $data['width'] * $data['height'], 2);
 
-        expect($container->getDimension())->toBe($expected);
+        expect($container->getVolume())->toBe($expected);
     });
 });

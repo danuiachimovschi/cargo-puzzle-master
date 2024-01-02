@@ -3,14 +3,14 @@
 use Cargo\App\Container\FortyFeetContainer;
 use Cargo\App\Container\TenFeetContainer;
 
-describe('Calculator', function () {
+describe('calculator', function () {
 
     beforeEach(function () {
         $this->tenFeetContainer = new TenFeetContainer();
         $this->fortyFeetContainer = new FortyFeetContainer();
     });
 
-    it('Calculate Transport One', function () {
+    it('calculate transport one', function () {
         $transportOne = new \Cargo\Core\Transport();
 
         $transportOne->registerContainer($this->tenFeetContainer);
@@ -27,7 +27,7 @@ describe('Calculator', function () {
         ]);
     });
 
-    it('Calculate Transport Two', function () {
+    it('calculate transport two', function () {
         $transportTwo = new \Cargo\Core\Transport();
 
         $transportTwo->registerContainer($this->tenFeetContainer);
@@ -46,7 +46,7 @@ describe('Calculator', function () {
         ]);
     });
 
-    it('Calculate Transport Three', function () {
+    it('calculate transport three', function () {
         $transportThree = new \Cargo\Core\Transport();
 
         $transportThree->registerContainer($this->tenFeetContainer);

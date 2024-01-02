@@ -9,9 +9,9 @@ use Cargo\Interfaces\ContainerInterface;
 abstract class AbstractDryContainer implements ContainerInterface
 {
     /**
-     * @var float $dimension
+     * @var float $volume
      */
-    private float $dimension;
+    private float $volume;
 
     public function __construct(
         public readonly float $length,
@@ -27,14 +27,14 @@ abstract class AbstractDryContainer implements ContainerInterface
      */
     private function setDimension(): void
     {
-        $this->dimension = round($this->length * $this->width * $this->height, 2);
+        $this->volume = round($this->length * $this->width * $this->height, 2);
     }
 
     /**
      * @return float
      */
-    public function getDimension(): float
+    public function getVolume(): float
     {
-        return $this->dimension;
+        return $this->volume;
     }
 }

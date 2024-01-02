@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cargo\Core;
 
 use Cargo\Exceptions\ContainerException;
+use Cargo\Interfaces\ContainerInterface;
 use Cargo\Interfaces\TransportInterface;
 
 readonly final class Calculator
@@ -24,25 +25,40 @@ readonly final class Calculator
 
         /*** array<class-string, ContainerInterface> $containers*/
         $containers = $transport->getSortedContainers();
-        $count = count($containers);
 
-        var_dump($transportVolume);
+        /*** int $count*/
+        $count = $transport->getCountContainers();
 
+
+        //Simple Algorithm for calculating the number of containers
         foreach ($containers as $item => $container) {
-            echo $container::class . ($container->getDimension()) . PHP_EOL;
-            $items = (int) floor($transportVolume / $container->getDimension());
+            $containerItems = self::getContainerCount($transportVolume, $container, $count, $item);
 
-            if ($count === $item + 1) $items = (int) ceil($transportVolume / $container->getDimension(), );
+            if ($containerItems === 0) continue;
 
-            if ($items === 0) continue;
+            $transportVolume -= $containerItems * $container->getVolume();
 
-            $transportVolume -= $items * $container->getDimension();
-
-            $result[$container::class] = $items;
+            $result[$container::class] = $containerItems;
 
             if ($transportVolume <= 0) break;
         }
 
         return $result;
+    }
+
+    /**
+     * @param float $transportVolume
+     * @param ContainerInterface $container
+     * @param int $count
+     * @param int $item
+     * @return int
+     */
+    public static function getContainerCount(float $transportVolume, ContainerInterface $container, int $count, int $item): int
+    {
+        $items = (int) floor($transportVolume / $container->getVolume());
+
+        if ($count === $item + 1) $items = (int) ceil($transportVolume / $container->getVolume());
+
+        return  $items;
     }
 }

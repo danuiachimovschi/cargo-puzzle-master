@@ -52,9 +52,7 @@ class Transport implements TransportInterface
         $volume = 0;
         $countPackages = count($this->packages);
 
-        for ($i = 0; $i < $countPackages; $i++) {
-            $volume += $this->packages[$i]->getDimension();
-        }
+        for ($i = 0; $i < $countPackages; $i++) $volume += $this->packages[$i]->getVolume();
 
         return $volume;
     }
@@ -67,7 +65,7 @@ class Transport implements TransportInterface
     {
         if (empty($this->containers)) throw ContainerException::emptyContainers();
 
-        usort($this->containers, static fn($container, $secContainer) => $secContainer->getDimension() <=> $container->getDimension());
+        usort($this->containers, static fn($container, $secContainer) => $secContainer->getVolume() <=> $container->getVolume());
 
         return $this->containers;
     }
