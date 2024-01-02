@@ -1,13 +1,26 @@
 <?php
 
 use Cargo\App\Packages\FirstTransport\BananaPackage;
-use Cargo\App\Packages\SecondTransport\ApplePackage;
-use Cargo\App\Packages\ThirdTransport\BookPackage;
-use Cargo\App\Packages\ThirdTransport\PhonePackage;
+
+use Cargo\App\Packages\SecondTransport\{
+    ApplePackage,
+    ToyPackage
+};
+
+use Cargo\App\Packages\ThirdTransport\{
+    BookPackage,
+    PhonePackage
+};
+use Cargo\App\Container\{
+    FortyFeetContainer,
+    TenFeetContainer
+};
+use Cargo\Core\{
+    Calculator,
+    Transport
+};
+
 use Cargo\App\ResultDumper;
-use Cargo\App\Container\{FortyFeetContainer, TenFeetContainer};
-use Cargo\App\Packages\SecondTransport\ToyPackage;
-use Cargo\Core\{Calculator, Transport};
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -40,8 +53,6 @@ $resultTransportOne = Calculator::calculate($firstTransport);
 $resultTransportTwo = Calculator::calculate($secondTransport);
 $resultTransportThree = Calculator::calculate($thirdTransport);
 
-$dumper = new ResultDumper();
-
-$dumper->dd($resultTransportOne);
-$dumper->dd($resultTransportTwo);
-$dumper->dd($resultTransportThree);
+ResultDumper::dd($resultTransportOne);
+ResultDumper::dd($resultTransportTwo);
+ResultDumper::dd($resultTransportThree);

@@ -16,6 +16,6 @@ describe('rectangular package', function (){
 
         $expected = $data['length'] * $data['width'] * $data['height'] * $data['numberItems'];
 
-        expect($package->getDimension())->toBe($expected);
+        expect($package->getVolume())->toBe($expected);
     });
 });

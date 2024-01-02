@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Cargo\Interfaces;
 
+use Cargo\Exceptions\ContainerException;
+
 interface TransportInterface
 {
     public function getVolumeOfTransport(): int;
 
     /**
      * @return array<ContainerInterface>
-     * @throws \Cargo\Exceptions\ContainerException
+     * @throws ContainerException
      */
     public function getSortedContainers(): array;
 

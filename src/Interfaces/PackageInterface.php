@@ -6,5 +6,5 @@ namespace Cargo\Interfaces;
 
 interface PackageInterface
 {
-    public function getDimension(): int;
+    public function getVolume(): int;
 }
